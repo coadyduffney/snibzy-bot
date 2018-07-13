@@ -14,7 +14,6 @@ Snibzy-Bot is a side project I've been working on in my spare time. It's a disco
 
 **_Games:_**
 * `!wow`: Retrieves character progression & M+ info from Raider.io
-
 * `!osrs`: Retrieve an items price from GE or lookup player highscores.
 * `!fortnite`: Retrieves player stats from Fortnite Tracker.
 * `!pubg`: Retrieves player stats from PUBG Tracker.
