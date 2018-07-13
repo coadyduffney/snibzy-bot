@@ -1,5 +1,6 @@
 # Snibzy-Bot
 Snibzy-Bot is a side project I've been working on in my spare time. It's a discord bot developed using the discord.js framework.  It's an all-in-one gaming bot with features for WoW, OSRS, Fortnite, PUBG - and some other useful and fun things too.
+To invite Snibzy-Bot to your discord server, click [here](https://coadyduffney.github.io/projects/snibzy-bot/index.html)
 
 #### Available Commands
 **_Simple:_**
