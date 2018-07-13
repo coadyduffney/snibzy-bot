@@ -1,0 +1,2 @@
+# snibzy-bot
+Discord Bot
