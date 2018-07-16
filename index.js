@@ -27,7 +27,9 @@ music.start(bot, {
   requesterName: true,
   clearInvoker: true,
   logging: true,
-  maxQueueSize: 10
+  maxQueueSize: 10,
+  enableQueueStat: true,
+  checkQueues: true
 });
 
 
