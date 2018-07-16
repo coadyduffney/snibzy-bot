@@ -1,7 +1,7 @@
 {
-  "name": "discordbot",
+  "name": "snibzy-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Snibzy-Bot is your all-in-one gaming bot with features for WoW, OSRS, Fortnite, PUBG - and some other cool things too, including a built-in music bot!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,7 @@
     "osrs-wrapper": "^1.0.4",
     "pubg-api-redis": "^3.7.0",
     "request": "^2.87.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "discord.js-musicbot-addon": "^12.0.6"
   }
 }

@@ -5,14 +5,13 @@ const token = 'NDY1ODUzMDI5MTYyMjg3MTI0.DiTkBg.apoEqsfdp2jJwM0bnVT_MUadfhc';
 
 // Commands Location
 bot.registry.registerGroup('simple', 'Simple');
-bot.registry.registerGroup('music', 'Music');
 bot.registry.registerGroup('games', 'Games');
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + '/commands');
 
 bot.on('message', (message) => {
     if (message.content == 'Hello') {
-        message.channel.send(`Hello ${message.author} ;)`);
+        message.channel.send(`Hello, ${message.author} ;)`);
     }
 });
 
