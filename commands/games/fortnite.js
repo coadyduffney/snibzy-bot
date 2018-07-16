@@ -1,5 +1,5 @@
 const Commando = require("discord.js-commando");
-const key = '5c403ed94c46222b30ac597a40e896cc';
+const key = '30d90114b25f8a71ba288c6625eb4cc0';
 const axios = require('axios');
 const config = {
   headers: {
@@ -10,9 +10,9 @@ const config = {
 class FortniteCommand extends Commando.Command {
   constructor(client) {
     super(client, {
-      name: "test",
+      name: "fortnite",
       group: "games",
-      memberName: "test",
+      memberName: "fortnite",
       description: "Retrieves player stats from Fortnite Tracker."
     });
   }
@@ -20,25 +20,95 @@ class FortniteCommand extends Commando.Command {
 
 
   async run(message, args) {
-    message.reply('This command is not working properly yet, please give me some time to fix it!');
+    const newArgs = args.split(' ');
+    const player = newArgs[0]
+    const platform = newArgs[1] || "pc";
+    let uid = '';
+    const id_url = 'https://fortnite-public-api.theapinetwork.com/prod09/users/id';
+    const stats_url = 'https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats';
+    let username = `username=${player}`;
 
-    let newArgs = args.split(' ');
-    let username = newArgs[0]
-    let platform = newArgs[1] || "pc";
+    message.reply(`Retrieving stats for ${player}...`)
 
-
+    // Retrieve player ID
     axios
-      .post(`https://fortnite-public-api.theapinetwork.com/prod09/users/id`,{ firstName: 'Marlon' }, config)
+      .post(id_url, username, config)
       .then(function(response) {
-        // handle success
-        console.log(response);
-        message.reply('success!');
+        const data = response.data;
+        uid = data.uid;
+
+        // Put together a string of params to pass
+        const params = `user_id=${uid}&platform=${platform}`
+
+        // Retrieve player stats using ID
+        axios
+          .post(stats_url, params, config)
+          .then(function(response) {
+            let stats = response.data;
+            // console.log(stats.totals);
+
+            const embed = {
+              "title": "Total Stats - Alltime",
+              "color": 12390624,
+              "thumbnail": {
+                "url": "https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg"
+              },
+              "author": {
+                "name": player,
+                "url": `https://fortnitetracker.com/profile/${platform}/${player}`,
+                "icon_url": "https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Kills",
+                  "value": stats.totals.kills.toString(),
+                  "inline": true
+                },
+                {
+                  "name": "K/D",
+                  "value": stats.totals.kd.toString(),
+                  "inline": true
+                },
+                {
+                  "name": "Wins",
+                  "value": stats.totals.wins.toString(),
+                  "inline": true
+                },
+
+                {
+                  "name": "Winrate",
+                  "value": stats.totals.winrate.toString(),
+                  "inline": true
+                },
+                {
+                  "name": "Score",
+                  "value": stats.totals.score.toString(),
+                  "inline": true
+                },
+                      {
+                  "name": "Matches Played",
+                  "value": stats.totals.matchesplayed.toString(),
+                  "inline": true
+                }
+              ]
+            };
+            message.channel.send({
+              embed
+            });
+          })
+          .catch(function(error) {
+            console.log(error);
+            message.reply('Error retrieving player stats...');
+        });
+
       })
       .catch(function(error) {
-        // handle error
         console.log(error);
-        message.reply('error');
-      });
+        message.reply('Error finding player...');
+    });
+
+    
+
   }
 
 }
