@@ -15,7 +15,7 @@ class OsrsCommand extends Commando.Command {
     let newArgs = args.split(" ");
 
     if (!newArgs[0]) {
-        message.reply('\nTo look up a players stats, use the following command: `!osrs lookup player`.\nTo look up an items GE price, use the following command: `!osrs price item`');
+        message.reply('\nTo look up a players stats, use the following command: `!osrs lookup <player_name>`.\nTo look up an items GE price, use the following command: `!osrs price <item_name>`');
     }
 
     // Handle player lookup command

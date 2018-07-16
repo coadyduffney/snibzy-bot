@@ -21,7 +21,7 @@ class WowCommand extends Commando.Command {
     let title = `${charName} - ${realm}`;
 
     if (!newArgs[0]) {
-      message.reply('\nTo look up a player, use the following command: `!wow player realm region`\nregion defaults to US if none specified.');
+      message.reply('\nTo look up a player, use the following command: `!wow <player> <realm> <region>`\nregion defaults to US if none specified.');
     } else {
       axios
         .get(

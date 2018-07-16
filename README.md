@@ -18,11 +18,17 @@ To invite Snibzy-Bot to your discord server, click [here](https://coadyduffney.g
 * `!osrs`: Retrieve an items price from GE or lookup player highscores.
 * `!fortnite`: Retrieves player stats from Fortnite Tracker.
 * `!pubg`: Retrieves player stats from PUBG Tracker.
-* League of Legends coming soon!
 
 <hr>
 
 **_Music:_**
-* `!join`: Joins the voice channel of whoever enters the command.
-* `!leave`: Leaves the current voice channel.
-* The rest of the music bot functionality will be added soon!
+* `++musichelp [command]`: Displays help text for commands by this addon, or help for a specific command.
+* `++play <url>|<search string>`: Play audio from YouTube.
+* `++skip [number]`: Skip a song or multi songs with skip [some number].
+* `++queue [index]`: Display the current queue or and item from the queue.
+* `++pause`: Pause music playback.
+* `++resume`: Resume music playback.
+* `++volume <number>`: Adjust the playback volume between 1 and 200.
+* `++leave`: Leaves the currently connected voice channel.
+* `++join`: Joins your currently connected channel.
+* `++clearqueue`: Clears the song queue.
