@@ -24,9 +24,10 @@ music.start(bot, {
   anyoneCanAdjust: true,
   anyoneCanSkip: true,
   enableQueueStat: true,
-  logging: true,
   requesterName: true,
-  botAdmins: ['nutos#9229', 'atapper25#0897', 'Snibzy#0424']
+  clearInvoker: true,
+  logging: true,
+  maxQueueSize: 10
 });
 
 

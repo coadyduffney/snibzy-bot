@@ -3,8 +3,11 @@ const Client = require('fortnite');
 const key = 'e92046d3-72e0-4824-8c52-d39e2af8c6a3';
 const fortnite = new Client(key);
 const axios = require('axios');
-  
-
+const config = {
+  headers: {
+    "TRN-Api-Key": "e92046d3-72e0-4824-8c52-d39e2af8c6a3"
+  }
+};
 
 class FortniteCommand extends Commando.Command {
   constructor(client) {
@@ -12,7 +15,7 @@ class FortniteCommand extends Commando.Command {
       name: "fortnite",
       group: "games",
       memberName: "fortnite",
-      description: "Retrieves player stats from Fortnite Tracker (NOT WORKING :())"
+      description: "Retrieves player stats from Fortnite Tracker."
     });
   }
 
@@ -20,6 +23,11 @@ class FortniteCommand extends Commando.Command {
 
   async run(message, args) {
     message.reply('This command is not working properly yet, please give me some time to fix it!');
+    // fortnite.user('Number1Swifty', 'xbl')
+    // .then(console.log)
+    // .catch(error => {
+    //   console.log(error);
+    // })
 
     // let newArgs = args.split(' ');
     // let username = newArgs[0]
@@ -27,7 +35,7 @@ class FortniteCommand extends Commando.Command {
 
 
     // axios
-    //   .get(`https://api.pubgtracker.com/v2/profile/${platform}/${name}`, config)
+    //   .get(`https://api.fortnitetracker.com/v1/profile/pc/Snibsy`, config)
     //   .then(function(response) {
     //     // handle success
     //     console.log(response);
