@@ -16,7 +16,7 @@ bot.on('message', (message) => {
 });
 
 music.start(bot, {
-  youtubeKey: 'AIzaSyAaeSv5Yi3avM8dLHoW8wPGGFAAMLhWlNE',
+  youtubeKey: 'AIzaSyAaeSv5Yi3avM8dLHoW8wPGGFAAMLhWlNE', // Change to your youtube key.
   prefix: '++',
   anyoneCanLeave: true,
   anyoneCanJoin: true,
