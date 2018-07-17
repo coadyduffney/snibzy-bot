@@ -4,11 +4,6 @@ const axios = require("axios");
 const pubg = require('pubg.js'); // https://www.npmjs.com/package/pubg.js
 const client = new pubg.Client(key, 'pc-na');
 
-const config = {
-  headers: {
-
-  }
-};
 
 class PubgCommand extends Commando.Command {
   constructor(client) {
