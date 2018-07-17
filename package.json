@@ -20,6 +20,7 @@
     "opusscript": "0.0.6",
     "osrs-wrapper": "^1.0.4",
     "pubg-api-redis": "^3.7.0",
+    "pubg.js": "^3.5.3",
     "request": "^2.87.0",
     "request-promise": "^4.2.2"
   }

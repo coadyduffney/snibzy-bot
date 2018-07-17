@@ -42,13 +42,15 @@ class OsrsCommand extends Commando.Command {
             
                 const embed = {
                     "title": "----------------------------------------------------------------------------",
-                    "color": 13885999,
+                    "color": 12629026,
                     "timestamp": "2018-07-11T12:32:34.119Z",
                     "footer": {
-                    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+                    "icon_url": "https://i.redd.it/apw60z07bjx01.png",
+                    "text": "Oldschool Runescape"
                     },
                     "author": {
-                    "name": `Stats of ${name}`
+                    "name": `Stats of ${name}`,
+                    "icon_url": 'https://i.redd.it/apw60z07bjx01.png'
                     },
                     "fields": [
                     {
@@ -209,10 +211,10 @@ class OsrsCommand extends Commando.Command {
 
                     const embed = {
                         "description": item.description,
-                        "color": 3107810,
-                        "timestamp": "2018-07-11T14:12:15.217Z",
+                        "color": 12629026,
+                        "timestamp": new Date(),
                         "thumbnail": {
-                          "url": item.icon_large
+                          "url": 'https://i.redd.it/apw60z07bjx01.png'
                         },
                         "author": {
                           "name": item.name,
