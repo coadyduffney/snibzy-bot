@@ -2,7 +2,7 @@
 Snibzy-Bot is a side project I've been working on in my spare time. It's a discord bot developed using [discord.js](https://discord.js.org/#/).  It's an all-in-one gaming bot with features for WoW, OSRS, Fortnite, PUBG - and some other useful and fun things too, including a built-in music bot! <br>
 To invite Snibzy-Bot to your discord server, click [here](https://coadyduffney.github.io/projects/snibzy-bot/)
 
-#### Available Commands
+### Available Commands
 **_Simple:_**
 * `!catgif`: Links a random cat gif from /r/CatGifs
 * `!flip`: Flips a coin, landing on either heads or tails.
