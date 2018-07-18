@@ -1,5 +1,6 @@
 const Commando = require("discord.js-commando");
-const key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhYjE4YTZiMC02NjdiLTAxMzYtODY3Ni0wZWI2MzFjZjMxMzUiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTMxMjMzMDA3LCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6InNuaWJ6eS1ib3QifQ.8szp5UQF_GCjQ4l6wfuQXbKC5q2NAQ4wOVA2cxJtqXY";
+const config = require('../../config');
+const key = config.pubgKey;
 const axios = require("axios");
 const pubg = require('pubg.js'); // https://www.npmjs.com/package/pubg.js
 const client = new pubg.Client(key, 'pc-na');

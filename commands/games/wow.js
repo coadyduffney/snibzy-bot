@@ -25,7 +25,7 @@ class WowCommand extends Commando.Command {
     } else {
       axios
         .get(
-          `https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${charName}&fields=gear%2Craid_progression%2Cmythic_plus_scores%2Cmythic_plus_highest_level_runs`
+          `https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${charName}&fields=gear%2Craid_progression%2Cmythic_plus_scores%2Cmythic_plus_highest_level_runs%2Craid_achievement_curve`
         )
         .then(function (response) {
           console.log(response.data);

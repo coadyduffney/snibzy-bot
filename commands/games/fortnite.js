@@ -1,7 +1,8 @@
 const Commando = require("discord.js-commando");
-const key = '30d90114b25f8a71ba288c6625eb4cc0';
+const config = require('../../config');
+const key = config.fortniteKey;
 const axios = require('axios');
-const config = {
+const axios_config = {
   headers: {
     "Authorization": key
   }
@@ -27,7 +28,7 @@ class FortniteCommand extends Commando.Command {
 
     const newArgs = args.split(' ');
 
-    // Capitalize first letter function
+    // Capitalize function
     String.prototype.capitalize = function() {
       return this.charAt(0).toUpperCase() + this.slice(1);
     }
@@ -36,8 +37,6 @@ class FortniteCommand extends Commando.Command {
       message.reply('\nTo look up a players stats, use the following command: `!fortnite stats <window> <player> <platform>`\nTo look up challengs, use the following command: `!fortnite challenges <season> <week>`');
     }
     
-
-
 
     // Handle player stats command
     if (newArgs[0] === 'stats') {
@@ -60,7 +59,7 @@ class FortniteCommand extends Commando.Command {
 
         // Retrieve player ID
         axios
-          .post(id_url, username, config)
+          .post(id_url, username, axios_config)
           .then(function(response) {
             const data = response.data;
             let uid = data.uid;
@@ -70,7 +69,7 @@ class FortniteCommand extends Commando.Command {
     
             // Retrieve player stats using ID
             axios
-              .post(stats_url, params, config)
+              .post(stats_url, params, axios_config)
               .then(function(response) {
                 let stats = response.data;
                 let icon_url = '';
@@ -167,7 +166,7 @@ class FortniteCommand extends Commando.Command {
 
         // Retrieve player stats using ID
         axios
-        .post(challenge_url, challenge_params, config)
+        .post(challenge_url, challenge_params, axios_config)
         .then(function(response) {
           // console.log(response.data);
           const challenges = response.data.challenges[week];

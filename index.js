@@ -1,7 +1,8 @@
 const Commando = require('discord.js-commando');
 const music = require('discord.js-musicbot-addon');
 const bot = new Commando.Client();
-const token = 'NDY1ODUzMDI5MTYyMjg3MTI0.DiTkBg.apoEqsfdp2jJwM0bnVT_MUadfhc';
+const config = require('./config');
+const token = config.token;
 
 // Commands Location
 bot.registry.registerGroup('simple', 'Simple');
@@ -17,7 +18,7 @@ bot.on('message', (message) => {
 });
 
 music.start(bot, {
-  youtubeKey: 'AIzaSyAaeSv5Yi3avM8dLHoW8wPGGFAAMLhWlNE', // Change to your youtube key.
+  youtubeKey: config.youtubeKey, // Change to your youtube key.
   prefix: '++',
   anyoneCanLeave: true,
   anyoneCanJoin: true,
