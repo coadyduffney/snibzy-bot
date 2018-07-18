@@ -10,7 +10,8 @@ class WowCommand extends Commando.Command {
       name: "wow",
       group: "games",
       memberName: "wow",
-      description: "Retrieves character raid progression, M+ scores, and arena ratings."
+      description:
+        "Retrieves character raid progression, M+ scores, and arena ratings."
     });
   }
 
@@ -18,7 +19,7 @@ class WowCommand extends Commando.Command {
   async run(message, args) {
     let newArgs = args.split(" ");
     let charName = newArgs.shift(); // remove character name from the array
-    let realm = newArgs.join(' '); // joins the array together to make up realm name
+    let realm = newArgs.join(" "); // joins the array together to make up realm name
     let region = "us";
     let rating_2v2 = "";
     let rating_3v3 = "";
@@ -26,10 +27,9 @@ class WowCommand extends Commando.Command {
 
     if (!newArgs[0]) {
       message.reply(
-        "\nTo look up a player, use the following command: `!wow <player> <realm>"
+        "\nTo look up a player, use the following command: `!wow <player> <realm>`"
       );
     } else {
-
       // Get characters arena ratings
       blizzard.wow
         .character(["pvp"], { realm: realm, name: charName, origin: region })
@@ -64,29 +64,29 @@ class WowCommand extends Commando.Command {
                 data.raid_progression["antorus-the-burning-throne"].summary;
 
               const embed = {
-                "color": 13632027,
-                "timestamp": new Date(),
-                "footer": {
-                  "icon_url":
+                color: 13632027,
+                timestamp: new Date(),
+                footer: {
+                  icon_url:
                     "http://scrubbusters.com/wp-content/uploads/2017/04/logowow.png",
-                  "text": "World of Warcraft"
+                  text: "World of Warcraft"
                 },
-                "thumbnail": {
-                  "url": thumbnail
+                thumbnail: {
+                  url: thumbnail
                 },
-                "author": {
-                  "name": author,
-                  "url": profile_url,
-                  "icon_url": thumbnail
+                author: {
+                  name: author,
+                  url: profile_url,
+                  icon_url: thumbnail
                 },
-                "fields": [
+                fields: [
                   {
-                    "name": `${spec} ${gameClass}`,
-                    "value": `${itemLevel} Equipped Item Level`
+                    name: `${spec} ${gameClass}`,
+                    value: `${itemLevel} Equipped Item Level`
                   },
                   {
-                    "name": "M+ Score",
-                    "value": `All: ${mythicPlus.all} **|** DPS: ${
+                    name: "M+ Score",
+                    value: `All: ${mythicPlus.all} **|** DPS: ${
                       mythicPlus.dps
                     } **|** Heals: ${mythicPlus.heals} **|** Tank: ${
                       mythicPlus.tank
@@ -97,18 +97,18 @@ class WowCommand extends Commando.Command {
                   //   "value": `${mythicPlus.highestKey} ${mythicPlus.dungeonName}`
                   // },
                   {
-                    "name": "Antorus Progression",
-                    "value": `${raid_progression}`
+                    name: "Antorus Progression",
+                    value: `${raid_progression}`
                   },
                   {
-                    "name": "2v2 Rating",
-                    "value": `${rating_2v2.toString()}`,
-                    "inline": true
+                    name: "2v2 Rating",
+                    value: `${rating_2v2.toString()}`,
+                    inline: true
                   },
                   {
-                    "name": "3v3 Rating",
-                    "value": `${rating_3v3.toString()}`,
-                    "inline": true
+                    name: "3v3 Rating",
+                    value: `${rating_3v3.toString()}`,
+                    inline: true
                   }
                 ]
               };

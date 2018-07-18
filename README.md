@@ -14,9 +14,9 @@ To invite Snibzy-Bot to your discord server, click [here](https://coadyduffney.g
 <hr>
 
 **_Games:_**
-* `!wow`: Retrieves character progression & M+ info from Raider.io
-* `!osrs`: Retrieve an items price from GE or lookup player highscores.
-* `!fortnite`: Retrieve player stats & season challenges, store items coming soon.
+* `!wow`: Retrieves characters raid progression, Mythic+ scores, and arena ratings.
+* `!osrs`: Lookup an item price or player stats.
+* `!fortnite`: Retrieve player stats, season challenges, and store items.
 * `!pubg`: Retrieve player stats.
 
 <hr>
