@@ -16,7 +16,7 @@ class FortniteCommand extends Commando.Command {
       group: "games",
       memberName: "fortnite",
       description:
-        "Retrieves player stats, daily shop & upcoming items, challenges and more."
+        "Retrieve player stats, and view daily shop items, specific items, and season challenges."
     });
   }
 
