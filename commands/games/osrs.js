@@ -7,7 +7,7 @@ class OsrsCommand extends Commando.Command {
       name: "osrs",
       group: "games",
       memberName: "osrs",
-      description: "Lookup an item price or player stats.."
+      description: "Lookup an item price or player stats"
     });
   }
 
