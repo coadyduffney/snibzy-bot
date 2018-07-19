@@ -260,6 +260,7 @@ To look up a specific item, use: \`!fortnite item <item name>\``);
         .post(store_url, store_params, axios_config)
         .then(function(response) {
           const items = response.data.items;
+
           let featured_items = [];
           let daily_items = [];
 
@@ -272,100 +273,49 @@ To look up a specific item, use: \`!fortnite item <item name>\``);
             }
           });
 
-          let featured_embed = new Discord.RichEmbed({
-            url: "https://fortniteapi.com/store",
-            color: 9374122,
-            timestamp: new Date(),
-            author: {
-              name: "Featured Items",
-              url: "https://fortniteapi.com/store",
-              icon_url:
-                "https://fortnite-public-files.theapinetwork.com/fortnite-vbucks-icon.png"
-            },
-            footer: {
-              icon_url:
-                "https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg",
-              text: "Fortnite"
-            },
-            thumbnail: {
-              url: "https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg"
-            },
-            fields: [
-              {
-                name: featured_items[0].name,
-                value: `${featured_items[0].cost} V-Bucks`,
-                inline: true
-              },
-              {
-                name: featured_items[1].name,
-                value: `${featured_items[1].cost} V-Bucks`,
-                inline: true
-              },
-              {
-                name: featured_items[2].name,
-                value: `${featured_items[2].cost} V-Bucks`,
-                inline: true
-              },
-              {
-                name: featured_items[3].name,
-                value: `${featured_items[3].cost} V-Bucks`,
-                inline: true
-              }
-            ]
+          // Create featured items embed
+          const featured_embed = new Discord.RichEmbed()
+            .setURL("https://fortniteapi.com/store")
+            .setColor(9374122)
+            .setTimestamp()
+            .setAuthor(
+              "Featured Items",
+              "https://fortnite-public-files.theapinetwork.com/fortnite-vbucks-icon.png"
+            )
+            .setFooter(
+              "Fortnite",
+              "https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg"
+            )
+            .setThumbnail(
+              "https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg"
+            );
+          // Loop through featured items, adding a field to the embed for each.
+          featured_items.forEach(item => {
+            featured_embed.addField(item.name, `${item.cost} V-Bucks`, true);
           });
 
-          let daily_embed = new Discord.RichEmbed({
-            url: "https://fortniteapi.com/store",
-            color: 9374122,
-            timestamp: new Date(),
-            author: {
-              name: "Daily Items",
-              url: "https://fortniteapi.com/store",
-              icon_url:
-                "https://fortnite-public-files.theapinetwork.com/fortnite-vbucks-icon.png"
-            },
-            footer: {
-              icon_url:
-                "https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg",
-              text: "Fortnite"
-            },
-            thumbnail: {
-              url: "https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg"
-            },
-            fields: [
-              {
-                name: daily_items[0].name,
-                value: `${daily_items[0].cost} V-Bucks`,
-                inline: true
-              },
-              {
-                name: daily_items[1].name,
-                value: `${daily_items[1].cost} V-Bucks`,
-                inline: true
-              },
-              {
-                name: daily_items[2].name,
-                value: `${daily_items[2].cost} V-Bucks`,
-                inline: true
-              },
-              {
-                name: daily_items[3].name,
-                value: `${daily_items[3].cost} V-Bucks`,
-                inline: true
-              },
-              {
-                name: daily_items[4].name,
-                value: `${daily_items[4].cost} V-Bucks`,
-                inline: true
-              },
-              {
-                name: daily_items[5].name,
-                value: `${daily_items[5].cost} V-Bucks`,
-                inline: true
-              }
-            ]
+          // Create daily items embed
+          const daily_embed = new Discord.RichEmbed()
+            .setURL("https://fortniteapi.com/store")
+            .setColor(9374122)
+            .setTimestamp()
+            .setAuthor(
+              "Daily Items",
+              "https://fortnite-public-files.theapinetwork.com/fortnite-vbucks-icon.png"
+            )
+            .setFooter(
+              "Fortnite",
+              "https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg"
+            )
+            .setThumbnail(
+              "https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg"
+            );
+          // Loop through daily items, adding a field to the embed for each.
+          daily_items.forEach(item => {
+            daily_embed.addField(item.name, `${item.cost} V-Bucks`, true);
           });
 
+          // Send both embeds to the text channel
           message.channel.send(featured_embed).then(msg => {
             message.channel.send(daily_embed);
           });
@@ -391,44 +341,40 @@ To look up a specific item, use: \`!fortnite item <item name>\``);
           axios_config
         )
           .then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             const data = response.data;
 
             let image = data[0].images.full;
-            console.log(image);
             if (!image) {
               image = data[0].images.icon;
             }
 
             const embed = {
-              description:
-                `**Type**: ${data[0].type.capitalize()} \n**Rarity**: ${data[0].rarity.capitalize()} \n**Obtained**: ${data[0].obtained.obtained} ${data[0].obtained.type}  `,
+              description: `**Type**: ${data[0].type.capitalize()} \n**Rarity**: ${data[0].rarity.capitalize()} \n**Obtained**: ${
+                data[0].obtained.obtained
+              } ${data[0].obtained.type}  `,
               color: 9374122,
               timestamp: new Date(),
               footer: {
-                icon_url:
-                  `https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg`,
+                icon_url: `https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg`,
                 text: "Fortnite"
               },
               thumbnail: {
-                url:
-                `https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg`
+                url: `https://i.ebayimg.com/images/g/6ekAAOSw3WxaO8mr/s-l300.jpg`
               },
               image: {
-                url:
-                image
+                url: image
               },
               author: {
                 name: data[0].name,
-                icon_url:
-                data[0].images.background
+                icon_url: data[0].images.background
               }
             };
             message.channel.send({ embed });
           })
           .catch(error => {
             console.log(error);
-            message.reply('Item not found');
+            message.reply("Item not found");
           });
       }
     }
