@@ -377,6 +377,12 @@ To look up a specific item, use: \`!fortnite item <item name>\``);
             message.reply("Item not found");
           });
       }
+    } else {
+      message.reply(`Invalid Command.
+To look up a players stats, use: \`!fortnite stats <window> <player> <platform>\`
+To look up challenges, use: \`!fortnite challenges <season> <week>\`
+To look up current store items, use: \`!fortnite store\`
+To look up a specific item, use: \`!fortnite item <item name>\``);
     }
   }
 }

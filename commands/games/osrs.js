@@ -253,6 +253,8 @@ class OsrsCommand extends Commando.Command {
             message.reply("Item not found");
           });
       }
+    } else {
+      message.reply('Invalid Command. \nTo look up a players stats, use the following command: `!osrs lookup <player_name>`.\nTo look up an items GE price, use the following command: `!osrs price <item_name>`"')
     }
   }
 }
