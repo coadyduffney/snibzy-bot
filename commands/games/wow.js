@@ -44,7 +44,7 @@ class WowCommand extends Commando.Command {
               `https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${charName}&fields=gear%2Craid_progression%2Cmythic_plus_scores%2Cmythic_plus_highest_level_runs%2Craid_achievement_curve`
             )
             .then(function(response) {
-              // console.log(response.data);
+              console.log(response.data);
               let data = response.data;
               let thumbnail = data.thumbnail_url;
               let profile_url = data.profile_url;
@@ -56,9 +56,9 @@ class WowCommand extends Commando.Command {
                 all: data.mythic_plus_scores.all,
                 dps: data.mythic_plus_scores.dps,
                 heals: data.mythic_plus_scores.healer,
-                tank: data.mythic_plus_scores.tank
-                // highestKey: data.mythic_plus_highest_level_runs[0].mythic_level,
-                // dungeonName: data.mythic_plus_highest_level_runs[0].short_name
+                tank: data.mythic_plus_scores.tank,
+                highestKey: data.mythic_plus_highest_level_runs[0].mythic_level,
+                dungeonName: data.mythic_plus_highest_level_runs[0].short_name
               };
               let raid_progression =
                 data.raid_progression["antorus-the-burning-throne"].summary;
@@ -72,12 +72,12 @@ class WowCommand extends Commando.Command {
                   text: "World of Warcraft"
                 },
                 thumbnail: {
-                  url: thumbnail
+                  url: data.thumbnail_url
                 },
                 author: {
                   name: author,
                   url: profile_url,
-                  icon_url: thumbnail
+                  icon_url: 'https://i.imgur.com/iPLYWso.png'
                 },
                 fields: [
                   {
@@ -92,10 +92,10 @@ class WowCommand extends Commando.Command {
                       mythicPlus.tank
                     }`
                   },
-                  // {
-                  //   "name": "Highest M+",
-                  //   "value": `${mythicPlus.highestKey} ${mythicPlus.dungeonName}`
-                  // },
+                  {
+                    "name": "Highest M+",
+                    "value": `${mythicPlus.highestKey} ${mythicPlus.dungeonName}`
+                  },
                   {
                     name: "Antorus Progression",
                     value: `${raid_progression}`
