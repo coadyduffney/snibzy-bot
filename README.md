@@ -5,7 +5,7 @@ To invite Snibzy-Bot to your discord server, click [here](https://coadyduffney.g
 ### Available Commands
 **_Games:_**
 * `!wow`: Retrieves characters raid progression, Mythic+ scores, and arena ratings.
-![alt text](https://github.com/coadyduffney/snibzy-bot/blob/master/img/wow-command.png)
+![alt text](https://github.com/coadyduffney/snibzy-bot/blob/master/img/wow-command-small.png)
 
 * `!osrs`: Lookup an item price or player stats.
 * `!fortnite`: Retrieve player stats, and view daily shop items, specific items, and season challenges.
