@@ -1,8 +1,18 @@
 # Snibzy-Bot
-Snibzy-Bot is a side project I've been working on in my spare time. It's a discord bot developed using [discord.js](https://discord.js.org/#/).  It's an all-in-one gaming bot with features for WoW, OSRS, Fortnite, PUBG - and some other useful and fun things too, including a built-in music bot! <br>
+Snibzy-Bot is a side project I've been working on in my spare time. It's a discord bot developed using [discord.js](https://discord.js.org/#/).  It's an all-in-one gaming bot with features for Fortnite, WoW, and OSRS - along with some other useful features, including a built-in music bot! <br>
 To invite Snibzy-Bot to your discord server, click [here](https://coadyduffney.github.io/projects/snibzy-bot/)
 
 ### Available Commands
+**_Games:_**
+* `!wow`: Retrieves characters raid progression, Mythic+ scores, and arena ratings.
+![alt text](https://github.com/coadyduffney/snibzy-bot/blob/master/img/osrs-logo.png "Logo Title Text 1")
+
+* `!osrs`: Lookup an item price or player stats.
+* `!fortnite`: Retrieve player stats, and view daily shop items, specific items, and season challenges.
+* `!pubg`: Retrieve player stats.
+
+<hr>
+
 **_Simple:_**
 * `!catgif`: Links a random cat gif from /r/CatGifs
 * `!flip`: Flips a coin, landing on either heads or tails.
@@ -10,14 +20,6 @@ To invite Snibzy-Bot to your discord server, click [here](https://coadyduffney.g
 * `!roll`: Rolls a random number between 1-100
 * `!reminder [minutes] `: Sends a reminder to the user after certain amount of time(minutes).
 * `!wallpaper`: Links a random wallpaper from /r/wallpapers
-
-<hr>
-
-**_Games:_**
-* `!wow`: Retrieves characters raid progression, Mythic+ scores, and arena ratings.
-* `!osrs`: Lookup an item price or player stats.
-* `!fortnite`: Retrieve player stats, and view daily shop items, specific items, and season challenges.
-* `!pubg`: Retrieve player stats.
 
 <hr>
 
