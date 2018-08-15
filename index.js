@@ -40,6 +40,3 @@ bot.on('ready', () => {
 
 // Logs bot into our server
 bot.login(token);
-
-// Authorize Bot in server
-// https://discordapp.com/api/oauth2/authorize?client_id=465853029162287124&scope=bot&permissions=1
