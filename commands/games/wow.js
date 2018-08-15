@@ -16,7 +16,7 @@ class WowCommand extends Commando.Command {
     });
   }
 
-  // !wow snibzy zul'jin us
+  // !wow snibzy zuljin us
   async run(message, args) {
     let newArgs = args.split(" ");
     let charName = newArgs.shift(); // remove character name from the array
@@ -89,8 +89,10 @@ class WowCommand extends Commando.Command {
                 highestDungeon = data.mythic_plus_highest_level_runs[0].short_name
               }
 
-              let raid_progression =
+              let antorus_progression =
                 data.raid_progression["antorus-the-burning-throne"].summary;
+              let uldir_progression =
+                data.raid_progression["uldir"].summary;
               let icon = "";
 
               if (data.class === "Death Knight") {
@@ -145,7 +147,8 @@ class WowCommand extends Commando.Command {
                 } else {
                   embed2.addField("Highest M+ (Seasonal)", `0 Completed`)
                 }
-                embed2.addField("Antorus Progression", raid_progression)
+                embed2.addField("Uldir Progression", uldir_progression, true)
+                embed2.addField("Antorus Progression", antorus_progression, true)          
                 embed2.addField("2v2 Rating", rating_2v2.toString(), true)
                 embed2.addField("3v3 Rating", rating_3v3.toString(), true)
                 
